@@ -19,6 +19,8 @@ public class ClientSideThread extends Thread{
 			try {
 				DataInputStream entrada = new DataInputStream(socket.getInputStream());
 				System.out.println(entrada);
+				
+				entrada.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
