@@ -21,7 +21,9 @@ public class AcceptThread extends Thread {
 		try {
 			while(true) {
 				Socket cliente = server.accept();
+				System.out.println("Cliente nuevo aceptado");
 				sockets.add(cliente);
+				System.out.println("Cliente agrego a los sockets");
 				
 				new ClientThread(cliente, sockets).start();
 			}

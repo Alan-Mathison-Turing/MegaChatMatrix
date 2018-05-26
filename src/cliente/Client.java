@@ -7,6 +7,7 @@ import java.net.Socket;
 
 public class Client {
 	
+	public static String nombre = "Maxi2";
 	
 	private int puerto;
 	private String ip;
@@ -18,15 +19,9 @@ public class Client {
 		
 		try {
 			Socket socket = new Socket(ip, puerto);
+			System.out.println("Cliente: " + Client.nombre);
 			
-			new ClientSideThread(socket).run();
-			
-			DataOutputStream salida = new DataOutputStream(socket.getOutputStream());
-			salida.writeUTF("Holis carolis");
-			salida.writeUTF("Holis carolis2");
-			salida.writeUTF("Holis carolis3");
-			
-			socket.close();
+			new ClientSideThread(socket,Client.nombre).run();
 			
 		} catch (IOException e) {
 			e.printStackTrace();

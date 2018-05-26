@@ -15,6 +15,7 @@ public class MegaChatMatrixServer {
 		
 		try {
 			ServerSocket server = new ServerSocket(puerto);
+			System.out.println("Server creado en puerto " + puerto);
 			
 			new AcceptThread(server, sockets).start();
 			
@@ -26,8 +27,7 @@ public class MegaChatMatrixServer {
 	
 	
 	public static void main(String[] args) {
-		MegaChatMatrixServer m = new MegaChatMatrixServer(7777);
-
+		new MegaChatMatrixServer(7777);
 	}
 
 }
